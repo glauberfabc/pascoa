@@ -85,7 +85,7 @@ const Header: React.FC = () => {
       {/* ──────────────────────────────────────────
           DESKTOP (≥ md): sticky scroll-scrub
       ────────────────────────────────────────── */}
-      <div className="hidden md:block relative h-[300vh]">
+      <div className="hidden md:block relative h-screen bg-[#0d0d0d]">
         <header
           ref={heroRef}
           id="hero"
