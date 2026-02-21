@@ -2,6 +2,8 @@
 import React from 'react';
 import Header from './components/Header';
 import TrustBar from './components/TrustBar';
+import Opportunity from './components/Opportunity';
+import MethodSection from './components/MethodSection';
 import Methodology from './components/Methodology';
 import Advantages from './components/Advantages';
 import TargetAudience from './components/TargetAudience';
@@ -15,6 +17,8 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col font-sans overflow-x-hidden">
       <Header />
+      <Opportunity />
+      <MethodSection />
       <TrustBar />
       <Methodology />
       <Advantages />

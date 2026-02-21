@@ -31,10 +31,25 @@ const Header: React.FC = () => {
       {/* ──────────────────────────────────────────
           MOBILE  (< md): layout simples, video completo
       ────────────────────────────────────────── */}
-      <header className="md:hidden flex flex-col bg-[#0d0d0d]">
+      <header className="md:hidden relative min-h-screen overflow-hidden bg-[#0d0d0d] flex flex-col">
+
+        {/* Vídeo fundo full-cover */}
+        <video
+          src="/video.mp4"
+          muted
+          playsInline
+          autoPlay
+          loop
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden="true"
+        />
+
+        {/* Máscara escura sobre o vídeo */}
+        <div className="absolute inset-0 bg-black/55" />
 
         {/* Logo */}
-        <nav className="absolute top-0 left-0 right-0 py-4 flex justify-center z-20">
+        <nav className="relative z-20 py-4 flex justify-center">
           <div className="bg-white/20 backdrop-blur-md px-5 py-1.5 rounded-full shadow-sm border border-white/30">
             <h1 className="text-lg font-display font-bold text-white tracking-wide">
               PÁSCOA <span className="text-xs font-sans font-normal uppercase text-pink-300 ml-1">Lucrativa</span>
@@ -42,32 +57,20 @@ const Header: React.FC = () => {
           </div>
         </nav>
 
-        {/* Vídeo completo, sem crop */}
-        <div className="w-full aspect-video mt-14 relative">
-          <video
-            src="/video.mp4"
-            muted
-            playsInline
-            autoPlay
-            loop
-            preload="auto"
-            className="w-full h-full object-contain bg-black"
-            aria-hidden="true"
-          />
-        </div>
-
-        {/* Conteúdo abaixo do vídeo */}
-        <div className="flex flex-col items-center text-center gap-5 px-6 py-10">
+        {/* Conteúdo sobre o vídeo */}
+        <div className="relative z-10 flex flex-col items-center text-center gap-5 px-6 py-10 flex-1 justify-center">
           <span className="inline-block px-4 py-1 bg-pink-500/20 text-pink-300 font-semibold text-sm rounded-full border border-pink-500/30">
-            Temporada 2024
+            Temporada 2026
           </span>
-          <h1 className="text-3xl font-display font-bold leading-tight text-white">
-            Aproveite a época mais{' '}
-            <span className="text-pink-400">lucrativa</span> da confeitaria
+          <h1 className="text-3xl font-display font-bold leading-tight text-white [text-shadow:0_2px_16px_rgba(0,0,0,0.8)]">
+            Fature{' '}
+            <span className="bg-gradient-to-r from-cyan-400 via-white to-pink-400 bg-clip-text text-transparent">
+              R$ 5.000,00
+            </span>{' '}
+            extras nesta Páscoa trabalhando apenas 15 dias na cozinha da sua casa
           </h1>
-          <p className="text-base text-white/80 leading-relaxed">
-            Fature muito vendendo ovos de páscoa. Mais de 15 sabores para você{' '}
-            <strong className="text-white">aprender e vender</strong> mesmo que nunca tenha feito na vida.
+          <p className="text-base text-white/85 leading-relaxed [text-shadow:0_1px_8px_rgba(0,0,0,0.7)]">
+            Descubra o método de produção em série para quem quer lucro rápido sem precisar de equipamentos profissionais e começando do absoluto zero.
           </p>
           <a
             href="#checkout"
@@ -82,7 +85,7 @@ const Header: React.FC = () => {
       {/* ──────────────────────────────────────────
           DESKTOP (≥ md): sticky scroll-scrub
       ────────────────────────────────────────── */}
-      <div className="hidden md:block relative h-[200vh]">
+      <div className="hidden md:block relative h-[300vh]">
         <header
           ref={heroRef}
           id="hero"
@@ -94,13 +97,15 @@ const Header: React.FC = () => {
             src="/video.mp4"
             muted
             playsInline
+            autoPlay
+            loop
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
             aria-hidden="true"
           />
 
           {/* Overlay */}
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/25" />
 
           {/* Logo */}
           <nav className="absolute top-0 left-0 right-0 py-6 flex justify-center z-20">
@@ -117,15 +122,17 @@ const Header: React.FC = () => {
           {/* Conteúdo centralizado */}
           <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 text-center gap-8">
             <span className="inline-block px-4 py-1 bg-white/20 backdrop-blur-sm text-white font-semibold text-sm rounded-full border border-white/30">
-              Temporada 2024
+              Temporada 2026
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-white drop-shadow-lg max-w-3xl">
-              Aproveite a época mais{' '}
-              <span className="text-pink-300">lucrativa</span> da confeitaria
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-white [text-shadow:0_4px_24px_rgba(0,0,0,0.7)] max-w-3xl">
+              Fature{' '}
+              <span className="bg-gradient-to-r from-cyan-400 via-white to-pink-400 bg-clip-text text-transparent">
+                R$ 5.000,00
+              </span>{' '}
+              extras nesta Páscoa trabalhando apenas 15 dias na cozinha da sua casa
             </h1>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-xl drop-shadow">
-              Fature muito vendendo ovos de páscoa. Mais de 15 sabores de ovos para você{' '}
-              <strong>aprender e vender</strong> mesmo que nunca tenha feito na vida.
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-xl [text-shadow:0_2px_12px_rgba(0,0,0,0.6)]">
+              Descubra o método de produção em série para quem quer lucro rápido sem precisar de equipamentos profissionais e começando do absoluto zero.
             </p>
             <a
               href="#checkout"
